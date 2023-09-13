@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:buster
 RUN apt-get update && apt-get upgrade -y
 RUN apt install nginx -y
 RUN apt install vim -y && apt install curl -y
@@ -10,4 +10,4 @@ RUN mkdir -p /var/run/nginx
 COPY ./conf/nginx.conf /etc/nginx/conf.d
 RUN chmod 755 /var/www/html
 RUN chown -R www-data:www-data /var/www/html
-# CMD [  "nginx", "-g", "daemon off;" ]
+CMD [ "nginx", "-g", "daemon off;" ]
